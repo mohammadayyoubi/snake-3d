@@ -12,11 +12,13 @@ public class TestMovement : MonoBehaviour {
 	public GameObject bodyPartPrefab;
 	public GameObject rockPrefab;
 	public GameObject grassPrefab;
-	public GameObject grassPrefab2;
-	public int startBodySize = 1;
-	public int noOfRocks = 2;
-	public int noOfGrass = 50;
-	public int noOfGrass2 = 50;
+        public GameObject grassPrefab2;
+        public GameObject enemyPrefab;
+        public int startBodySize = 1;
+        public int noOfRocks = 2;
+        public int noOfEnemies = 1;
+        public int noOfGrass = 50;
+        public int noOfGrass2 = 50;
 
 	//movement variables
 	private float distance;
@@ -48,20 +50,31 @@ public class TestMovement : MonoBehaviour {
 		if(bodyParts.Count != 0)
 		startingRotation = bodyParts[0].rotation;
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                if(enemyPrefab == null){
+                        enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
+                }
 
 		//adding body parts in the begining
 		for(int i=0; i<startBodySize - 1; i++){
 			addBodyPart();
 		}
 
-		//adding rocks
-		for(int j=0; j<noOfRocks; j++){
-			Vector3 newPosition = new Vector3(Random.Range(boardMinDistance, boardMaxDistance), 0.75f, Random.Range(boardMinDistance, boardMaxDistance));
-			//check the rock object
-			if(rockPrefab != null) {
-				GameObject go = Instantiate(rockPrefab, newPosition, Quaternion.identity) as GameObject;
-			}
-		}
+                //adding rocks
+                for(int j=0; j<noOfRocks; j++){
+                        Vector3 newPosition = new Vector3(Random.Range(boardMinDistance, boardMaxDistance), 0.75f, Random.Range(boardMinDistance, boardMaxDistance));
+                        //check the rock object
+                        if(rockPrefab != null) {
+                                GameObject go = Instantiate(rockPrefab, newPosition, Quaternion.identity) as GameObject;
+                        }
+                }
+
+                //adding enemies
+                for(int e=0; e<noOfEnemies; e++){
+                        Vector3 newPosition = new Vector3(Random.Range(boardMinDistance, boardMaxDistance), 0.75f, Random.Range(boardMinDistance, boardMaxDistance));
+                        if(enemyPrefab != null){
+                                Instantiate(enemyPrefab, newPosition, Quaternion.identity);
+                        }
+                }
 
 		//adding grass1
 		for(int k=0; k<noOfGrass; k++){
@@ -177,12 +190,12 @@ public class TestMovement : MonoBehaviour {
 	//trigger wall collision
 	void OnTriggerEnter(Collider other){
 		//Debug.Log("Triggredd");
-		//collide with wall or rock
-		if(other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Rock")){
-			Debug.Log("Triggred With Wall");
-			//goto lose screen
-			levelManager.LoadLevel("Lose");
-		}
+                //collide with wall, rock or enemy
+                if(other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Rock") || other.gameObject.CompareTag("Enemy")){
+                        Debug.Log("Triggred With Wall");
+                        //goto lose screen
+                        levelManager.LoadLevel("Lose");
+                }
 	}
 
 	//collision 

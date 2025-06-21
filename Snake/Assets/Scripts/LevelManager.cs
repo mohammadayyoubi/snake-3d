@@ -20,9 +20,14 @@ public class LevelManager : MonoBehaviour {
 		Application.Quit();
 	}
 	
-	public void LoadNextLevel(){
-		Application.LoadLevel(Application.loadedLevel + 1);
-	}
+        public void LoadNextLevel(){
+                int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+                if(nextIndex < SceneManager.sceneCountInBuildSettings){
+                        SceneManager.LoadScene(nextIndex);
+                }else{
+                        SceneManager.LoadScene(0);
+                }
+        }
 
 	//loading the game scene
 	public void loadingGame(){

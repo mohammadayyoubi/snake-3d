@@ -14,12 +14,12 @@ public class HeadCollision : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		Debug.Log("Head Trigger");
 
-		//collide with bodyPart
-		if(other.gameObject.CompareTag("BodyPart")){
-			Debug.Log("Triggred With BodyPart");
-			//goto lose screen
-			levelManager.LoadLevel("Lose");
-		}
+                //collide with bodyPart or enemy
+                if(other.gameObject.CompareTag("BodyPart") || other.gameObject.CompareTag("Enemy")){
+                        Debug.Log("Triggred With BodyPart or Enemy");
+                        //goto lose screen
+                        levelManager.LoadLevel("Lose");
+                }
 	}
 
 }

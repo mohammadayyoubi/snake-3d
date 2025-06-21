@@ -1,7 +1,7 @@
 <h1>Snake-3D</h1>
 <h3>A simple classic Snake3D game made with unity 5.3</h3>
 
-The snake starts with 3 pieces and increase one piece for each fruit eaten.
+The snake starts with 3 pieces and increase one piece for each fruit eaten. The game now features roaming enemies that end the game on contact and three difficulty levels.
 
 A new fruit will appear in a random place with particles effect and sound effect every time the snake eats it, and there are 2 types of fruits int the game. The number of fruit pieces can be changed by the user.
 There are a number of rocks as obstacles and can also be determined by the user. The sanke dies in one of 3 cases:
