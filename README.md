@@ -11,7 +11,7 @@ There are a number of rocks as obstacles and can also be determined by the user.
 - Hitting itself
 
 The snake moves in 4 directions (ie. 4 angles) and the movement can be done with arrow keys, mouse swiping or touch swiping for mobile phones using swipe manager script (link below).
-The main menu now shows buttons for Level 1 and Level 2. Selecting a level loads it directly.
+The main menu now shows buttons for Level 1, Level 2 and Level 3. Selecting a level loads it directly.
 There are also some plant 3D models to simulate a garden and the game plane has a grass material sourrounded by 4 walls and the snake has a snake texture to simulate a real snake.
 
 I have implemented a new feature in which the player can change the camera position with 3 modes:
