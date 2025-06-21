@@ -1542,7 +1542,7 @@ MonoBehaviour:
   grassPrefab2: {fileID: 142068, guid: 3557a9d6b747c2e4b893c559b9a863d8, type: 2}
   startBodySize: 3
   noOfRocks: 5
-  noOfEnemies: 1
+  noOfEnemies: 0
   noOfGrass: 50
   noOfGrass2: 20
 --- !u!4 &1075692118
