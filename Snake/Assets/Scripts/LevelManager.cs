@@ -30,7 +30,6 @@ public class LevelManager : MonoBehaviour {
                 Debug.Log("Loaded Level: "+name);
                 if(name == "Level1") pendingSettings = typeof(Level1Settings);
                 else if(name == "Level2") pendingSettings = typeof(Level2Settings);
-                else if(name == "Level3") pendingSettings = typeof(Level3Settings);
 
                 SceneManager.LoadScene(name);
         }
@@ -45,7 +44,6 @@ public class LevelManager : MonoBehaviour {
                 string nextName = SceneManager.GetSceneByBuildIndex(nextIndex).name;
                 if(nextIndex < SceneManager.sceneCountInBuildSettings){
                         if(nextName == "Level2") pendingSettings = typeof(Level2Settings);
-                        else if(nextName == "Level3") pendingSettings = typeof(Level3Settings);
                         else pendingSettings = null;
                         SceneManager.LoadScene(nextIndex);
                 }else{
@@ -64,9 +62,6 @@ public class LevelManager : MonoBehaviour {
                         }
                         if(GUI.Button(new Rect(x, y + 50, width, height), "Level 2")){
                                 LoadLevel("Level2");
-                        }
-                        if(GUI.Button(new Rect(x, y + 100, width, height), "Level 3")){
-                                LoadLevel("Level3");
                         }
                 }
         }

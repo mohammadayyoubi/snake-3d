@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour {
     public float speed = 1.0f;
@@ -10,6 +11,10 @@ public class Enemy : MonoBehaviour {
         GameObject head = GameObject.FindGameObjectWithTag("Head");
         if (head != null) {
             target = head.transform;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Level1") {
+            speed = 0f; // stationary rock on Level 1
         }
     }
 
