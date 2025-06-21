@@ -10,11 +10,15 @@ public class Enemy : MonoBehaviour {
     void Start() {
         GameObject head = GameObject.FindGameObjectWithTag("Head");
         if (head != null) {
-            target = head.transform;
+          
         }
 
         if (SceneManager.GetActiveScene().name == "Level1") {
             speed = 0f; // stationary rock on Level 1
+        }
+        else
+        {
+            target = head.transform;
         }
     }
 
