@@ -20,6 +20,9 @@ public class Score : MonoBehaviour {
                 GUIStyle style = new GUIStyle();
                 style.fontSize = 24;
                 style.normal.textColor = Color.black;
-                GUI.Label(new Rect(10,10,200,30), "Score: " + score, style);
+                float width = 200;
+                float height = 30;
+                float x = (Screen.width - width) / 2f;
+                GUI.Label(new Rect(x, 10, width, height), "Score: " + score, style);
         }
 }

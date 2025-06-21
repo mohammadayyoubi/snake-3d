@@ -3,12 +3,18 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class PauseScript : MonoBehaviour {
-	
-	public Text pauseText;
 
-	void Start(){
-		pauseText.gameObject.SetActive(false);
-	}
+        public Text pauseText;
+
+        void Start(){
+                pauseText.gameObject.SetActive(false);
+        }
+
+        void Update(){
+                if(Input.GetKeyDown(KeyCode.Escape)){
+                        pauseTheGame();
+                }
+        }
 
 
 	public void pauseTheGame(){

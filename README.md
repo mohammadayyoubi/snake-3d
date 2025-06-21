@@ -22,7 +22,9 @@ I have implemented a new feature in which the player can change the camera posit
 - far 
 <img src="http://i.imgur.com/tSpNGSg.png">
 
-And the pause button enables the player to pause the game at any time.
+Press **V** during play to cycle between the three camera distances.  The score
+is drawn at the top centre of the screen.  Press **Escape** to pause or resume
+the game at any time.
 After the snake dies the lose scene will be loaded showing the score of the player and a play again button which load the main menu again.
 
 The game is suitable for mobile phones and was tested on some devices like (Galaxy S3, Galaxy S5, Note 4)

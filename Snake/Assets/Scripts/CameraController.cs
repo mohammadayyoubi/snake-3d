@@ -15,10 +15,16 @@ public class CameraController : MonoBehaviour {
 	//current camera position
 	CameraPosition currentCameraPostion;
 
-	// Use this for initialization
-	void Start () {
-		initializeCameraDetails();
-	}
+        // Use this for initialization
+        void Start () {
+                initializeCameraDetails();
+        }
+
+        void Update(){
+                if(Input.GetKeyDown(KeyCode.V)){
+                        changeCameraPosition();
+                }
+        }
 
 	//Initial camera details
 	void initializeCameraDetails(){
