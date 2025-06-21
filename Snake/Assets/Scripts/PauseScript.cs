@@ -1,34 +1,38 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseScript : MonoBehaviour {
+public class PauseScript : MonoBehaviour
+{
+    public Text pauseText;
 
-        public Text pauseText;
+    void Start()
+    {
+        pauseText.gameObject.SetActive(false);
+    }
 
-        void Start(){
-                pauseText.gameObject.SetActive(false);
-        }
-
-        void Update(){
-                if(Input.GetKeyDown(KeyCode.Escape)){
-                        pauseTheGame();
-                }
-        }
-
-
-	public void pauseTheGame(){
-		if(Time.timeScale == 1){
-			//game not paused
-			Time.timeScale = 0;				//pause the game
-			pauseText.gameObject.SetActive(true);
-		}else if(Time.timeScale == 0){
-			//game paused
-			Time.timeScale = 1;				//continue the game
-			pauseText.gameObject.SetActive(false);
-		}
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            pauseTheGame();
+        }
+    }
+
+    public void pauseTheGame()
+    {
+        if (Time.timeScale == 1)
+        {
+            // Pause the game
+            Time.timeScale = 0;
+            pauseText.gameObject.SetActive(true);
+        }
+        else
+        {
+            // Resume the game
+            Time.timeScale = 1;
+            pauseText.gameObject.SetActive(false);
+        }
+    }
             if (Time.timeScale == 1)
             {
                 // Game not paused
