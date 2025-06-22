@@ -16,13 +16,13 @@ public class Score : MonoBehaviour {
                 score = FruitRotator.count;
     }
 
-       /* void OnGUI(){
+        void OnGUI(){
                 GUIStyle style = new GUIStyle();
                 style.fontSize = 24;
-                style.normal.textColor = Color.black;
-                float width = 200;
+                style.normal.textColor = Color.white;
+                float width = 250;
                 float height = 30;
                 float x = (Screen.width - width) / 2f;
                 GUI.Label(new Rect(x, 10, width, height), "Score: " + score, style);
-        }*/
+        }
 }
