@@ -7,7 +7,7 @@ public class FruitRotator : MonoBehaviour {
 	public Transform particles;
 	private int minDistance = -8;
 	private int maxDistance = 8;
-	private AudioSource audioSrc;
+       public AudioClip eatClip;
 	private Vector3 newPosition;
 
 	//score
@@ -18,8 +18,12 @@ public class FruitRotator : MonoBehaviour {
 		//initialize counter
 		count = 0;
 
-		//initialize audio source
-		audioSrc = GetComponent<AudioSource>();
+               //load sound clip from any attached audio source then remove it
+               AudioSource src = GetComponent<AudioSource>();
+               if(src != null){
+                       if(eatClip == null) eatClip = src.clip;
+                       Destroy(src);
+               }
 
 		//stop particles
 		particles.GetComponent<ParticleSystem>().enableEmission = false;
@@ -42,8 +46,8 @@ public class FruitRotator : MonoBehaviour {
 			particles.GetComponent<ParticleSystem>().enableEmission = false;
 			StartCoroutine(stopParticles());
 
-			//play sound
-			audioSrc.Play();
+                       if(eatClip != null)
+                               AudioSource.PlayClipAtPoint(eatClip, transform.position);
 
 			//get new position
 			StartCoroutine(getNewPosition());
