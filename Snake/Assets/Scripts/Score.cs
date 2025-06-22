@@ -14,9 +14,9 @@ public class Score : MonoBehaviour {
         void Update () {
                 //get the score
                 score = FruitRotator.count;
-        }
+    }
 
-        void OnGUI(){
+       /* void OnGUI(){
                 GUIStyle style = new GUIStyle();
                 style.fontSize = 24;
                 style.normal.textColor = Color.black;
@@ -24,5 +24,5 @@ public class Score : MonoBehaviour {
                 float height = 30;
                 float x = (Screen.width - width) / 2f;
                 GUI.Label(new Rect(x, 10, width, height), "Score: " + score, style);
-        }
+        }*/
 }
